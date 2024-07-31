@@ -1,12 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 import Delete from "../../imagens/lixeira.png";
+import perfilVazio from "../../imagens/perfilVazio.jpg"
+
+interface CardProps {
+    cor?: string;
+}
 
 const CardContainer = styled.div`
     width: 280px;
 `;
 
-const CardContainerBloco1 = styled.div`
+const CardContainerBloco1 = styled.div<CardProps>`
     background-color: ${props => props.cor || 'var(--cor-principal-branco)'};
     border-radius: 10px 10px 0px 0px;
     display: flex;
@@ -40,7 +45,7 @@ const CardContainerNome = styled.h4`
     margin-bottom: 8px;
 `;
 
-const CardContainerCargo = styled.h5`
+const CardContainerCargo = styled.h5<CardProps>`
     font-size: 18px;
     line-height: 22px;
     color: ${props => props.cor || '#212121'};
@@ -65,13 +70,14 @@ const CardContainerDeleteIcon = styled.img`
 `;
 
 const Card = ({ imagem, nome, cargo, corFundo, corNome, onDelete }) => {
+    const imageSrc = imagem ? imagem : perfilVazio
     return (
         <CardContainer>
             <CardContainerBloco1 cor={corFundo}>
                 <CardContainerButtonDelete aria-label={`Delete ${nome}`} onClick={onDelete}>
                     <CardContainerDeleteIcon src={Delete} alt="Delete icon" />
                 </CardContainerButtonDelete>
-                <CardContainerImg src={imagem} alt={`Imagem de ${nome}`} />
+                <CardContainerImg src={imageSrc} alt={`Imagem de ${nome}`} />
             </CardContainerBloco1>
 
             <CardContainerBloco2>
