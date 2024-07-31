@@ -48,7 +48,7 @@ const Form = ({ registerEmployee, times }) => {
                 <TituloForm>Preencha os dados para criar o card do colaborador</TituloForm>
                 <TextField valor={nome} changeValue={setNome} type="text" label="Nome" placeholder="Insira seu nome" obrigatorio={true}/>
                 <TextField valor={cargo} changeValue={setCargo} type="text" label="Cargo" placeholder="Insira seu cargo" obrigatorio={true}/>
-                <TextField valor={imagem} changeValue={setImagem} type="text" label="Imagem" placeholder="Insira o endereço da imagem" obrigatorio={true}/>
+                <TextField valor={imagem} changeValue={setImagem} type="text" label="Imagem" placeholder="Insira o endereço da imagem" obrigatorio={false}/>
                 <List valor={time} changeValue={setTime} label="Times" itens={times} obrigatorio={true}/>
                 <Botao>Criar Card</Botao>
             </CampoForm>
