@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/projeto-organograma/static/css/main.31f23625.css",
+    "main.js": "/projeto-organograma/static/js/main.a676536e.js",
+    "static/media/imgOrganize.png": "/projeto-organograma/static/media/imgOrganize.4bb60c9afff323a6260d.png",
+    "static/media/tituloOrganize.png": "/projeto-organograma/static/media/tituloOrganize.3316a0ce5950ce91bda6.png",
+    "static/media/ig.png": "/projeto-organograma/static/media/ig.e2bcd542ad36efb459db.png",
+    "static/media/tw.png": "/projeto-organograma/static/media/tw.3ce27ae6ec0b21e50384.png",
+    "static/media/fb.png": "/projeto-organograma/static/media/fb.f1c2b5e6540bce82c416.png",
+    "static/media/lixeira.png": "/projeto-organograma/static/media/lixeira.a2c02969502e494ddd05.png",
+    "index.html": "/projeto-organograma/index.html",
+    "main.31f23625.css.map": "/projeto-organograma/static/css/main.31f23625.css.map",
+    "main.a676536e.js.map": "/projeto-organograma/static/js/main.a676536e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31f23625.css",
+    "static/js/main.a676536e.js"
+  ]
+}
