@@ -1,0 +1,30 @@
+.formulario-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 80px 0;
+    gap: 1em;
+}
+.formulario-container .formulario {
+    max-width: 100%;
+    background: #ebebe8;
+    box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.38);
+    border: 1px solid rgb(40, 2, 255);
+    border-radius: 20px;
+    padding: 36px 64px;
+}
+
+.formulario-container .formulario h2, .formulario-novotime h2 {
+    font-weight: 400;
+    font-size: 32px;
+}
+
+.formulario-container .formulario-novotime {
+    max-width: 1000%;
+    background: #ebebe8;
+    box-shadow: 7px 7px 15px rgba(112, 112, 112, 0.38);
+    border: 1px solid rgb(40, 2, 255);
+    border-radius: 20px;
+    padding: 36px 64px;
+    height: 50%;
+}

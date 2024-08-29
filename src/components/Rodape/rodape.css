@@ -1,0 +1,30 @@
+.rodapeContainer{
+    background-color: var(--cor-principal-branco);
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(238, 238, 237);
+}
+
+.redesSociais{
+    display: flex;
+    gap: 1rem;
+}
+
+.icon{
+    width: 30px;
+    height: 30px;
+    padding: 0.2rem;
+    cursor: pointer;
+}
+
+.icon:hover{
+    width: 31px;
+        height: 33px;
+        transition: 1s;
+}
+
+.logoOrganize{
+    width: 20%;
+}

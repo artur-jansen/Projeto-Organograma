@@ -1,0 +1,41 @@
+.containerBanner{
+    background-color: rgb(238, 238, 237);
+    display: flex;
+    width: 100%;
+}
+
+.containerTitulo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.containerLogo{
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.imagemTitulo{
+    width: 60%;
+}
+
+.subtitulo{
+    margin: 0 0 0 1.5rem;
+    color: var(--cor-principal-azul);
+    font-size: 1.5rem;
+}
+
+@media (max-width: 1024px) {
+    .imagemTitulo{
+        display: none;
+    }
+
+    .containerLogo{
+        width: 100%;
+    }
+
+    .subtitulo{
+        margin-bottom: 1em;
+    }
+}

@@ -1,0 +1,37 @@
+.campo-text {
+    margin: 24px 0;
+}
+
+.campo-text label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.campo-text input {
+    background: #FFFFFF;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 0px;
+    width: 100%;
+    border: none;
+    font-size: 24px;
+    padding: 12px;
+    box-sizing: border-box;
+}
+
+.campo-color label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 24px;
+}
+
+.campo-color input {
+    background: #FFFFFF;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.06);
+    border-radius: 0px;
+    width: 20%;
+    border: none;
+    font-size: 24px;
+    box-sizing: border-box;
+    margin-bottom: 1em;
+}

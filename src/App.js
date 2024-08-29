@@ -1,54 +1,95 @@
-import { useState, useEffect } from 'react';
-import Banner from './components/Banner/index.tsx';
-import Form from './components/Form/index.tsx';
-import Team from './components/Team/index.tsx';
-import styled from 'styled-components';
-import Rodape from './components/Rodape/index.tsx';
+import { useState } from "react";
+import Banner from "./components/Banner";
+import Formulario from "./components/Form";
+import Rodape from "./components/Rodape";
+import Time from "./components/Team";
+import { v4 as uuidv4 } from 'uuid';
 
 function App() {
-  const [employees, setEmployees] = useState([]);
 
-  useEffect(() => {
-    const savedEmployees = JSON.parse(localStorage.getItem('employees')) || [];
-    setEmployees(savedEmployees);
-  }, []);
+  const [times, setTimes] = useState([
+    {
+      id: uuidv4(),
+      nome: 'Programação',
+      cor: '#57C278'
+    },
+    {
+      id: uuidv4(),
+      nome: 'Front-End',
+      cor: '#82CFFA'
+    },
+    {
+      id: uuidv4(),
+      nome: 'Data Science',
+      cor: '#A6D157'
+    },
+    {
+      id: uuidv4(),
+      nome: 'Devops',
+      cor: '#E06B69'
+    },
+    {
+      id: uuidv4(),
+      nome: 'UX e Design',
+      cor: '#DB6EBF'
+    },
+    {
+      id: uuidv4(),
+      nome: 'Mobile',
+      cor: '#FFBA05'
+    },
+    {
+      id: uuidv4(),
+      nome: 'Inovação e Gestão',
+      cor: '#FF8A29'
+    },
+  ]);
 
-  const times = [
-    { nome: 'FullStack', corPrimaria: '#00FF94', corSecundaria: 'rgba(0, 255, 148, 0.4)' },
-    { nome: 'DevOps', corPrimaria: '#2A3B59', corSecundaria: 'rgba(42, 59, 89, 0.4)' },
-    { nome: 'FrontEnd', corPrimaria: '#E54E39', corSecundaria: 'rgba(229, 78, 57, 0.4)' },
-    { nome: 'BackEnd', corPrimaria: '#FBB453', corSecundaria: 'rgba(251, 180, 83, 0.4)' },
-    { nome: 'Mobile', corPrimaria: '#9BBA3B', corSecundaria: 'rgba(155, 186, 59, 0.4)' },
-    { nome: 'Security', corPrimaria: '#01BABD', corSecundaria: 'rgba(1, 186, 189, 0.4)' },
-    { nome: 'Design', corPrimaria: '#48006A', corSecundaria: 'rgba(72, 0, 106, 0.4)' }
-  ];
+  const inicial = [
+    {
+      id: uuidv4(),
+      favorito: false,
+      nome: 'JULIANA AMOASEI',
+      cargo: 'Desenvolvedora de software e instrutora',
+      imagem: 'https://www.alura.com.br/assets/img/lideres/juliana-amoasei.1647533644.jpeg',
+      time: times[0].nome
+    },
+  ]
 
-  const addNewEmployee = (colaborador) => {
-    const updatedEmployees = [...employees, colaborador];
-    setEmployees(updatedEmployees);
-    localStorage.setItem('employees', JSON.stringify(updatedEmployees));
-  };
+  const [colaboradores, setColaboradores] = useState(inicial)
 
-  const removeEmployee = (nome) => {
-    const updatedEmployees = employees.filter(employee => employee.nome !== nome);
-    setEmployees(updatedEmployees);
-    localStorage.setItem('employees', JSON.stringify(updatedEmployees));
-  };
+  function deletarColaborador(id) {
+    setColaboradores(colaboradores.filter(colaborador => colaborador.id !== id));
+  }
+
+  function mudarCor(cor, id) {
+    setTimes(times.map(time => {
+      if(time.id === id) {
+        time.cor = cor;
+      }
+      return time;
+    }));
+  }
+
+  function cadastrarTime(novoTime) {
+    setTimes([...times, {...novoTime, id: uuidv4() }])
+  }
+
+  function resolverFavorito(id) {
+    setColaboradores(colaboradores.map(colaborador => {
+      if(colaborador.id === id) colaborador.favorito = !colaborador.favorito;
+      return colaborador;
+    }))
+  }
 
   return (
-    <div className="App">
+    <div>
       <Banner />
-      <Form times={times.map(time => time.nome)} registerEmployee={addNewEmployee} />
-      {times.map(time => (
-        <Team 
-          key={time.nome} 
-          nome={time.nome} 
-          corPrimaria={time.corPrimaria} 
-          corSecundaria={time.corSecundaria}
-          colaboradores={employees.filter(colaborador => colaborador.time === time.nome)}
-          onDelete={removeEmployee}
-        />
-      ))}
+      <Formulario cadastrarTime={cadastrarTime} times={times.map(time => time.nome)} aoCadastrar={colaborador => setColaboradores([...colaboradores, colaborador])}/>
+      <section className="times">
+        <h1>Minha organização</h1>
+        {times.map((time, indice) => <Time mudarCor={mudarCor} key={indice} time={time} colaboradores={colaboradores.filter(colaborador => colaborador.time === time.nome)} aoDeletar={deletarColaborador} aoFavoritar={resolverFavorito}/>)}
+      </section>
       <Rodape />
     </div>
   );
